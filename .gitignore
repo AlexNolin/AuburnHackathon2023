@@ -1,0 +1,3 @@
+config.env
+.env
+/ss-tracker/server/config.env
