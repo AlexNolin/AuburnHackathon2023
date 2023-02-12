@@ -1,13 +1,23 @@
-import React from "react"; 
+import React, { Component } from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-const App = () => {
+
+const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: -3.745,
+    lng: -38.523
+  };
+  
+//   class MyComponents extends Component {
+    
+//   }
+  const App = () => {
     return(
-        <div>
-            <h1>
-                App
-            </h1>
-        </div>
-    );
-}
-
-export default App;
+        <div>test</div>
+    )
+  }
+  export default App;
