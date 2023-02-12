@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import TestData from './TestData';
+import Header from './Content/Header';
 
 
 const containerStyle = {
@@ -17,7 +19,12 @@ const containerStyle = {
 //   }
   const App = () => {
     return(
-        <div>test</div>
+        <div>
+          <Header />
+          <div>
+            <TestData />
+          </div>
+        </div>
     )
   }
   export default App;
