@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const locationsSchema = mongoose.Schema({
-    sharkName: String,
-    latitude: Float,
-    longitude: Float,
-    time: Date
+    name: String,
+    latitude: String,
+    longitude: String,
+    datetime: Date
 });
 
-const locations = mongoose.model('locations', locationsSchema);
+const locations = mongoose.model('locations', locationsSchema, "OprahData");
 
 export default locations;
