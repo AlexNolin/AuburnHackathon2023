@@ -7,6 +7,6 @@ const locationsSchema = mongoose.Schema({
     datetime: Date
 });
 
-const locations = mongoose.model('locations', locationsSchema);
+const locations = mongoose.model('locations', locationsSchema, "OprahData");
 
 export default locations;
