@@ -9,9 +9,11 @@
   .map{
     margin: auto;
   }
-
-  #palm1{
+  #header-img{
     max-height: 20vh;
+  }
+  #palm1{
+    max-height: 25vh;
     position: absolute;
     right: 10px;
   }
