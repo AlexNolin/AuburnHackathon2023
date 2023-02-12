@@ -1,6 +1,6 @@
 //import React from 'react'
-import React, { Component } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import React, { Component, useState } from 'react';
+import { GoogleMap, LoadScript, Marker, withScriptjs, withGoogleMap, InfoWindow } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
@@ -39,8 +39,16 @@ const markers = [
     }
   ];
 
-
 function MyComponent() {
+  const [activeMarker, setActiveMarker] = useState(null);
+  
+  const handleActiveMarker = (marker) => {
+    if (marker === activeMarker) {
+      return;
+    }
+    setActiveMarker(marker);
+  };
+
   return (
     <LoadScript
       googleMapsApiKey="AIzaSyAR1BgreyRf-moEkVhF4K0ZjQelceUsLxs"
@@ -51,14 +59,21 @@ function MyComponent() {
         center={center}
         zoom={10}
         class="map"
+        onClick={() => setActiveMarker(null)}
         >
             <Marker position = {markerLocation} icon={"http://maps.google.com/mapfiles/ms/icons/marina.png"}/>
         {markers.map(({ id, name, position }) => (
             <Marker
                 key={id}
+                onClick={() => handleActiveMarker(id)}
                 position={position}
                 icon = {"http://maps.google.com/mapfiles/ms/icons/marina.png"}
             >
+              {activeMarker === id ? (
+            <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+              <div>{name}</div>
+            </InfoWindow>
+          ) : null}
             </Marker>
         ))}
       </GoogleMap>
