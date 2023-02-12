@@ -2,7 +2,7 @@ import Locations from '../models/locations.js';
 
 export const getLocationData = (req, res) => {
     const getObj = Locations.find((err, val) => {
-        console.log(val)
+        console.log(val[0]._doc.oprah2.latitude);
         res.status(200).json(val);
     })
 }

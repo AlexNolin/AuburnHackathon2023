@@ -4,10 +4,18 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import locationRoutes from './routes/locations.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
-
-
+app.use(express.static("../client/build"));
+app.use(express.static("../client/public"));
+app.get('/', function(req, res){
+    res.sendFile(__dirname, "public", "index.html");
+})
 app.use('/locations', locationRoutes);
 app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
