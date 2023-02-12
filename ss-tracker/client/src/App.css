@@ -1,6 +1,10 @@
 .header {
     padding: 1rem;
-    text-align: left;
+    text-align: center;
     background: #269faf;
     color: white;
+  }
+
+  .map{
+    margin: auto;
   }

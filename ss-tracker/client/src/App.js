@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import './App.css';
 import TestData from './TestData';
 import Header from './Content/Header';
 
 
-const containerStyle = {
-    width: '400px',
-    height: '400px'
-  };
+// const containerStyle = {
+//     width: '400px',
+//     height: '400px'
+//   };
   
-  const center = {
-    lat: -3.745,
-    lng: -38.523
-  };
+//   const center = {
+//     lat: -3.745,
+//     lng: -38.523
+//   };
   
 //   class MyComponents extends Component {
     

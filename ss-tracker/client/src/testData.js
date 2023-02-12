@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '800px',
+  width: '100%',
   height: '800px'
 };
 
@@ -50,6 +50,7 @@ function MyComponent() {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
+        class="map"
         >
             <Marker position = {markerLocation} icon={"http://maps.google.com/mapfiles/ms/icons/marina.png"}/>
         {markers.map(({ id, name, position }) => (
