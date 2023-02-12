@@ -1,10 +1,17 @@
 .header {
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: center;
-    background: #269faf;
+    background: #FAF2C3;
     color: white;
+    overflow: auto;
   }
 
   .map{
     margin: auto;
+  }
+
+  #palm1{
+    max-height: 20vh;
+    position: absolute;
+    right: 10px;
   }
