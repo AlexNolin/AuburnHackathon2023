@@ -1,22 +1,20 @@
-const express = require("express");
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+import locationRoutes from './routes/locations.js';
+
 const app = express();
-const cors  = require("cors");
-require("dotenv").config({ path: "./config.env" });
-const PORT = process.env.PORT || 3001;
+
+app.use('/locations', locationRoutes);
+app.use(bodyParser.json({limit: "30mb", extended: true}));
+app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
-app.use(express.json());
-app.use(require("./routes/record"));
-// get driver connection
-const dbo = require("./db/connection");
 
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
-  });
+const CONNECTION_URL = 'mongodb+srv://eris-he:sLRQz4qnvvp3aFdN@cluster0.fzlfou5.mongodb.net/?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 3000;
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+mongoose.connect(CONNECTION_URL)
+    .then(() => app.listen(PORT, () => console.log('Server running on Port ${PORT}')))
+    .catch((error) => console.log(error.message));
